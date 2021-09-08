@@ -16,3 +16,16 @@ Ex:
   main.c:5:2  warning Impicit declaration of function 'printf' 
   main.c:1:1: note :include 'stdio.h' or provide a declaration of 'printf' 
 
+
+2. -D
+      Predefine name as macro, eith defination 1.
+     Ex :
+      #include<stdio.h>
+      int main()
+      {
+         printf("%d\n",CONST);
+         return 0;
+      }
+      Compilation : gcc -0 main main.c -DCONST=10
+      If -DCONST is not used error will occurs
+      'CONST' undeclered 
