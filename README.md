@@ -12,4 +12,9 @@ Advanced system programming
 <td>fork creats a new process by duplicating the calling process .The new process is referred to as the child process</td>
 <td><a href="http://github.com/chemchemnaresh/AdvancedC/tree/main/fork">code</a></td>
 </tr>
+<tr>
+<td>static</td>
+<td>static library by invoking it as part of the compilation and linking process when creating a program.</td>
+<td><a href="http://github.com/chemchemnaresh/AdvancedC/tree/main/static">code</a></td>
+</tr>
 </table>
