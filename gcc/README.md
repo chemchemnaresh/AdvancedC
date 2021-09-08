@@ -28,4 +28,5 @@ Ex:
       }
       Compilation : gcc -0 main main.c -DCONST=10
       If -DCONST is not used error will occurs
-      'CONST' undeclered 
+      'CONST' undeclered
+ 
