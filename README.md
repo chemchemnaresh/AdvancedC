@@ -17,4 +17,9 @@ Advanced system programming
 <td>static library by invoking it as part of the compilation and linking process when creating a program.</td>
 <td><a href="http://github.com/chemchemnaresh/AdvancedC/tree/main/static">code</a></td>
 </tr>
+<tr>
+<td>Dynamic</td>
+<td>Dynamic libraries are loaded when a program is lanunched and loaded into memory and binding occurs at run time</td>
+<td><a href="http://github.com/chemchemnaresh/AdvancedC/tree/main/Dynamic">code</a></td>
+</tr>
 </table>
