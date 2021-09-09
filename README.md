@@ -22,4 +22,9 @@ Advanced system programming
 <td>Dynamic libraries are loaded when a program is lanunched and loaded into memory and binding occurs at run time</td>
 <td><a href="http://github.com/chemchemnaresh/AdvancedC/tree/main/Dynamic">code</a></td>
 </tr>
+<tr>
+<td>gcc</td>
+<td>GCC stands for GNU compiler collections which is used to compile mainly C and C++ language</td>
+<td><a href="http://github.com/chemchemnaresh/AdvancedC/tree/main/gcc">code</a></td>
+</tr>
 </table>
