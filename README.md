@@ -27,4 +27,9 @@ Advanced system programming
 <td>GCC stands for GNU compiler collections which is used to compile mainly C and C++ language</td>
 <td><a href="http://github.com/chemchemnaresh/AdvancedC/tree/main/gcc">code</a></td>
 </tr>
+<tr>
+<td>dll</td>
+<td>Doble linked list can be used to implemrnt stack as well as heaps and binary trees/</td>
+<td><a href="http://github.com/chemchemnaresh/AdvancedC/tree/main/gcc">code</a></td>
+</tr>
 </table>
