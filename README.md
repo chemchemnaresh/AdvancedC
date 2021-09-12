@@ -29,7 +29,7 @@ Advanced system programming
 </tr>
 <tr>
 <td>dll</td>
-<td>Doble linked list can be used to implemrnt stack as well as heaps and binary trees/</td>
-<td><a href="http://github.com/chemchemnaresh/AdvancedC/tree/main/gcc">code</a></td>
+<td>Doble linked list can be used to implemrnt stack as well as heaps and binary trees</td>
+<td><a href="http://github.com/chemchemnaresh/AdvancedC/tree/main/dll">code</a></td>
 </tr>
 </table>
