@@ -48,7 +48,7 @@ The ELF header is 32 byte long, and identifiers the format of the file.It starts
 The program header shows segments used at run-time, and tells the system how to create process image.the header from above figure shows That elf file consists of 13 program headers that have a size of 56 bytes each, the first header starts at byte 64.
 The command used to get ELF program header of an application is <b> readelf -l prog </b>
 <p align="<center">
-<img src = "https://miro.medium.com/max/552/1*uNbNzYP2wFKWg2AdLBx51Q.png">
+<img src = "https://th.bing.com/th/id/R.56f71464b335439e4cbd3c735f945ee5?rik=0PvJljNY%2fOqAew&riu=http%3a%2f%2flinux-audit.com%2fwp-content%2fuploads%2f2015%2f08%2felf-program-headers-segments.png&ehk=T6fSq3tbnK0S1Fn1f2ArXBe%2f%2fZiRSsncNC1YSWEEw6Y%3d&risl=&pid=ImgRaw&r=0.png">
 </p>
 
 <h1> Sction Header </h1>
