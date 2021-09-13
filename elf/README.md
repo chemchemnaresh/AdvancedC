@@ -48,13 +48,13 @@ The ELF header is 32 byte long, and identifiers the format of the file.It starts
 The program header shows segments used at run-time, and tells the system how to create process image.the header from above figure shows That elf file consists of 13 program headers that have a size of 56 bytes each, the first header starts at byte 64.
 The command used to get ELF program header of an application is <b> readelf -l prog </b>
 <p align="<center">
-
+<img src = "https://miro.medium.com/max/552/1*uNbNzYP2wFKWg2AdLBx51Q.png">
 </p>
 
 <h1> Sction Header </h1>
 The section headers define all the sections in the file.This is used for linking and relocation. a segment can have 0 or more sections. for executable files there are four main sections.
 <p align="center">
-<img src=
+<img src="https://miro.medium.com/max/552/1*uNbNzYP2wFKWg2AdLBx51Q.png">
 </p>
 <b>.text:-></b> contains executable code. it will be packed into segment with read write access rights.It only loads once as the contents will not change.This can be seen with the "objdump" utility.
 <br>
