@@ -16,6 +16,28 @@ The ELF header is 32 byte long, and identifiers the format of the file.It starts
 <img src="https://th.bing.com/th/id/OIP.cD0KSawwWrSLNRnVV1DIXgHaEJ?pid=ImgDet&rs=1.png">
 </p>
 
+<b> Class : </b>
+
+   After the type declaration, there is a class field defined.This value determine the architecture for 
+   the file.it can be 32-bit or 64 bit architecture/The magic shows a 02, which is translated by
+   the readelf command as an ELF64 file. in other words, an ELF file using the 64-bit architecture.
+
+<b> Version : </b>
+
+    Next in line is another "01" in the magic, which is the version number.
+    Currently,there is only 1 version type:currently, which is the value "01".
+
+<b> OS/ABI : </b>
+
+    Each operating system has a big overlap in common functions.In addition, each of them has specific ones,
+    or at least minor differences between them.The definations of the right set is done with an
+    Application Binary Interface(ABI).
+
+<b> ABI version : </b>
+
+    ABI is short for Application Binary Interface and specifies a low level interface between then operating system
+    and a piece of executable code. When needed, a version for the ABI can be specified.
+
 <h1> Program Header </h1>
 The program header shows segments used at run-time, and tells the system how to create process image.the header from above figure shows That elf file consists of 13 program headers that have a size of 56 bytes each, the first header starts at byte 64.
 The command used to get ELF program header of an application is <b> readelf -l prog </b>
