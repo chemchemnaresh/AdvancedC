@@ -32,4 +32,9 @@ Advanced system programming
 <td>Doble linked list can be used to implemrnt stack as well as heaps and binary trees</td>
 <td><a href="http://github.com/chemchemnaresh/AdvancedC/tree/main/dll">code</a></td>
 </tr>
+<tr>
+<td>elf</td>
+<td>Executable and Linkable Format is acommon standard file format for executable files,object code,shared libraries and core dumps</td>
+<td><a href="http://github.com/chemchemnaresh/AdvancedC/tree/main/elf">code</a></td>
+</tr>
 </table>
