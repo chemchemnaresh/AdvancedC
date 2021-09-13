@@ -26,7 +26,7 @@ The command used to get ELF program header of an application is <b> readelf -l p
 <h1> Sction Header </h1>
 The section headers define all the sections in the file.This is used for linking and relocation. a segment can have 0 or more sections. for executable files there are four main sections.
 <p align="center">
-<img src=
+<img src="https://th.bing.com/th/id/OIP.cD0KSawwWrSLNRnVV1DIXgHaEJ?pid=ImgDet&rs=1.png">
 </p>
 <b>.text:-></b> contains executable code. it will be packed into segment with read write access rights.It only loads once as the contents will not change.This can be seen with the "objdump" utility.
 <br>
