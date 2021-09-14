@@ -50,6 +50,19 @@ The command used to get ELF program header of an application is <b> readelf -l p
 <p align="<center">
 <img src = "https://th.bing.com/th/id/R.56f71464b335439e4cbd3c735f945ee5?rik=0PvJljNY%2fOqAew&riu=http%3a%2f%2flinux-audit.com%2fwp-content%2fuploads%2f2015%2f08%2felf-program-headers-segments.png&ehk=T6fSq3tbnK0S1Fn1f2ArXBe%2f%2fZiRSsncNC1YSWEEw6Y%3d&risl=&pid=ImgRaw&r=0.png">
 </p>
+<b>GNU_EH_FRAME:-></b>This is stored queue used by the GNU C compiler(gcc).It stores the exception handler <b>
+
+<b>GNU_STACK:-></b>This header is store stack information <b>
+
+<b>GNU_RELRO:-></b>This segment indicates the memory region which shold be made READ-ONLY after relaction is done <b>
+
+<b>INTERP:-></b>for dynamic binaries ,this holds the full pathname for runtime linker id <b>
+
+<b>LOAD:-></b>Loadble program segment.only segment of this type are loaded into memory during execution <b>
+
+<b>NOTE:-></b>Auxilary information. for core dumps this segment contains the status of the process <b>
+
+<b>DYNAMIC:-></b>for dynamic binaries,this segment hold dynamic linkinginformation <b>
 
 <h1> Sction Header </h1>
 The section headers define all the sections in the file.This is used for linking and relocation. a segment can have 0 or more sections. for executable files there are four main sections.
@@ -65,5 +78,10 @@ The section headers define all the sections in the file.This is used for linking
 
 <b>.bss:-></b> contains uninintilized data, with read/write access right <br>
 
+<b>.comment:-></b>This section holds version control information <br>
+
+<b>.note.GNU-stack:-></b>This section is used in Linux object file for declaring stack attributes <b>
+
+<b>.shstrtab:-></b>This section holds the section names.This section is of type SHT_STRTAB <b>
 
 
