@@ -42,7 +42,61 @@ The ELF header is 32 byte long, and identifiers the format of the file.It starts
 <b> ABI Version : </b>
 
   ABI is short for Application Binary Interface and specifies a low-level interface between the operating 
-  system and a piece of executable code. When needed, a version for ABI can be specified. 
+  system and a piece of executable code. When needed, a version for ABI can be specified.
+ 
+<b> ELF Header </b>
+
+The ELF header is declared by the type elf32_hdr or elf64_hdr:
+
+<img src ="https://hydrasky.com/wp-content/uploads/2018/10/Capture03102.png">
+
+<i> e_ident </i>
+    This array of bytes specifies how to interrupt the file, independent of the processor or the files remining contents    with in this array everything is named by macro,which starts with prefix EI_ and prefix ELF_.
+ 
+ The following macros are defined :
+
+<i> e_type </i> - This member of the structure identifies the the object file type :
+    
+   ET_NONE  -  An unknown type 
+   ET_REL   - A relocatble file
+   ET_EXEC  - A executable file
+   ET_DYN   - A shared object
+   ET_CORE  - A core file
+
+<i> e_machine </i>  - This member specifies the required architecture for individual file.
+
+   EM_NONE  - An unknown type 
+   EM_386   - Intel 80386
+
+<i> e_entry </i>
+
+    This member gives the virtual adress to which the system first transfer control, thus starting process.
+    If the file has no assosiated entry point,This member holds zero/
+
+<i> e_version </i> - This member identifies the file version
+
+   EV_NONE 0  -  Invalid version
+   EV_CURRENT -  current version
+
+<i>e_shoff </i>
+        
+        This members holds the section header table's file offset in bytes .In the file no sectio header table,
+        this member holds to zero.
+
+<i> e_flags </i>
+     
+       This member holds processor_specific flags with the file.Flag names take the form
+       EF_'machine _falg'. no flag have been defined.
+
+<i> e_ehsize </i>
+
+    This member holds the ELF header's size in byte.
+
+<i> e_phnum </i>
+
+      This member holds the number of entries in the program header table. Thus the product of e_phentsize and
+      e_phnum gives the tables size in bytes.
+
 
 <h1> Program Header </h1>
 The program header shows segments used at run-time, and tells the system how to create process image.the header from above figure shows That elf file consists of 13 program headers that have a size of 56 bytes each, the first header starts at byte 64.
