@@ -47,3 +47,37 @@ end
 
 ```
 
+**_3. using logical and operator_**
+```
+Ex:
+area and, code, readonly
+entry 
+mov r0,#03  /* ro is loaded with 3 */
+mov r1,#05  /* r1 is loaded with 5 */
+and r2,r1,r0 /* using and operation r0 and r1 store the result in r2 */
+end
+
+  input : r0=3  0011
+          r1=5  0101
+
+ output : r2=1  0001
+
+```
+
+**_4. Using logical orr operator_** 
+```
+Ex:
+area orr, code, readonly
+entry
+mov r0,#03  /* r0=3 */
+mov r1,#05  /* r1=5 */
+orr r2,r1,r0 /* using orr operation and store the result in r2 */
+end
+
+input : r0=3 0011
+        r1=5 0101
+
+output: r2=7 0111
+
+```
+

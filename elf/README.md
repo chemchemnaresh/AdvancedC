@@ -51,6 +51,7 @@ The ELF header is declared by the type elf32_hdr or elf64_hdr:
 <img src ="https://hydrasky.com/wp-content/uploads/2018/10/Capture03102.png">
 
 <i> e_ident </i>
+
     This array of bytes specifies how to interrupt the file, independent of the processor or the files remining contents    with in this array everything is named by macro,which starts with prefix EI_ and prefix ELF_.
  
  The following macros are defined :
@@ -104,6 +105,7 @@ The command used to get ELF program header of an application is <b> readelf -l p
 <p align="<center">
 <img src = "https://th.bing.com/th/id/R.56f71464b335439e4cbd3c735f945ee5?rik=0PvJljNY%2fOqAew&riu=http%3a%2f%2flinux-audit.com%2fwp-content%2fuploads%2f2015%2f08%2felf-program-headers-segments.png&ehk=T6fSq3tbnK0S1Fn1f2ArXBe%2f%2fZiRSsncNC1YSWEEw6Y%3d&risl=&pid=ImgRaw&r=0.png">
 </p>
+
 <b>GNU_EH_FRAME:-></b>This is stored queue used by the GNU C compiler(gcc).It stores the exception handler <b>
 
 <b>GNU_STACK:-></b>This header is store stack information <b>
@@ -123,8 +125,9 @@ The section headers define all the sections in the file.This is used for linking
 <p align="center">
 <img src="https://miro.medium.com/max/552/1*uNbNzYP2wFKWg2AdLBx51Q.png">
 </p>
-<b>.text:-></b> contains executable code. it will be packed into segment with read write access rights.It only loads once as the contents will not change.This can be seen with the "objdump" utility.
-<br>
+
+<b>.text:-></b> contains executable code. it will be packed into segment with read write access rights.It only loads 
+   once as the contents will not change.This can be seen with the "objdump" utility.<br>
 
 <b>.data:-></b> contains initilized data,with read/write access rights <br>
 
@@ -137,5 +140,15 @@ The section headers define all the sections in the file.This is used for linking
 <b>.note.GNU-stack:-></b>This section is used in Linux object file for declaring stack attributes <b>
 
 <b>.shstrtab:-></b>This section holds the section names.This section is of type SHT_STRTAB <b>
+
+<b>.dynamic:-></b>This section holds dynamic linking information.The section's attributes will include the SHF_ALLOC 
+   bit <b>
+
+<b>.hash:-></b>This section holds a symbol has table.This section is of type SHT_HASH.The attribute used is SHF_ALLOC <b>
+
+<b>.dynsym:-></b>This section holds the dynamic linking symbol data  <b>
+ 
+<b>.got:-></b>This section holds the globel offset table.the attributes are processor-specific <b>
+
 
 
