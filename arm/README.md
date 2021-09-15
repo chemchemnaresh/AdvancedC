@@ -81,3 +81,25 @@ output: r2=7 0111
 
 ```
 
+**5_.Program to find largest of a number_**
+```
+Ex:
+area large,code,readonly
+entry
+     mov r5,#06   /* count the value */
+     mov r1,#0x40000000 /* start of data memory */
+     mov r2,#0x4000001c /* resulr location */
+     ldr r3,[r1]        /* get first data */
+loop add r1,r1,#04      /* memory pointer updated for next number */
+     ldr r4,r[1]        /* get next number */
+     cmp r3,r4          /* compare first with the second number */
+     bhi loop1          /* if,first no.greter than second ,loop1 */
+     mov r3,r4          /* result in r3 */
+
+loop1subs r5,r5,#01     /* decrement counter */
+      cmp r5,#00
+      bne loop          /* all numbers checked no loop back */
+      str r3,[r2]       /* result in r3 */
+end
+
+```

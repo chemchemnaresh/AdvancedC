@@ -157,12 +157,12 @@ The section headers define all the sections in the file.This is used for linking
 <b>.init:-> </b> This section holds executable instructions the contributes the process intilization code.when a program starts to run,the system executes the code in section  <br />
 
 <h3> consider the following program as example </h3>
-
-<h3> The intilized globel static, local static and globel varibles stored in .data section </h3>
-<h3> The unintilized globel,local static varibles are stored in .bss section </h3>
 <p align="center">
 <img src="https://github.com/chemchemnaresh/AdvancedC/blob/main/figures/des.1.png">
 </p>
+
+<h3> The intilized globel static, local static and globel varibles stored in .data section </h3>
+<h3> The unintilized globel,local static varibles are stored in .bss section </h3>
 <p align="center">
 <img src="https://github.com/chemchemnaresh/AdvancedC/blob/main/figures/des.png">
 </p>
