@@ -161,13 +161,13 @@ The section headers define all the sections in the file.This is used for linking
 <h3> The intilized globel static, local static and globel varibles stored in .data section </h3>
 <h3> The unintilized globel,local static varibles are stored in .bss section </h3>
 <p align="center">
-<img src=
+<img src="https://github.com/chemchemnaresh/AdvancedC/blob/main/figures/des.1.png">
 </p>
 <p align="center">
-<img src=
+<img src="https://github.com/chemchemnaresh/AdvancedC/blob/main/figures/des.png">
 </p>
 
 <h2> testelf.c </h2>
 
-This file contains the program to check file is ELF or not. --<a href="https://github.com/chemchemnaresh?AdvancedC/tree/main/elf/testelf.c">code</a>
+This file contains the program to check file is ELF or not. --<a href="https://github.com/chemchemnaresh/AdvancedC/blob/main/elf/testelf.c">code</a>
 
