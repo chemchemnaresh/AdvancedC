@@ -137,18 +137,37 @@ The section headers define all the sections in the file.This is used for linking
 
 <b>.comment:-></b>This section holds version control information <br>
 
-<b>.note.GNU-stack:-></b>This section is used in Linux object file for declaring stack attributes <b>
+<b>.note.GNU-stack:-></b>This section is used in Linux object file for declaring stack attributes <br />
 
-<b>.shstrtab:-></b>This section holds the section names.This section is of type SHT_STRTAB <b>
+<b>.shstrtab:-></b>This section holds the section names.This section is of type SHT_STRTAB <br />
 
 <b>.dynamic:-></b>This section holds dynamic linking information.The section's attributes will include the SHF_ALLOC 
-   bit <b>
+   bit <br />
 
-<b>.hash:-></b>This section holds a symbol has table.This section is of type SHT_HASH.The attribute used is SHF_ALLOC <b>
+<b>.hash:-></b>This section holds a symbol has table.This section is of type SHT_HASH.The attribute used is SHF_ALLOC <br />
 
-<b>.dynsym:-></b>This section holds the dynamic linking symbol data  <b>
+<b>.dynsym:-></b>This section holds the dynamic linking symbol data  <br />
  
-<b>.got:-></b>This section holds the globel offset table.the attributes are processor-specific <b>
+<b>.got:-></b>This section holds the globel offset table.the attributes are processor-specific <br />
 
+<b>.dynstr:-></b> This section holds a string needed for dynamic linking,most commonly the strings that represent the names assosiated with symbol tale entries. <br />
 
+<b>.interp:-></b> This section holds the pathname of a program interpreter. <br />
+
+<b>.init:-> </b> This section holds executable instructions the contributes the process intilization code.when a program starts to run,the system executes the code in section  <br />
+
+<h3> consider the following program as example </h3>
+
+<h3> The intilized globel static, local static and globel varibles stored in .data section </h3>
+<h3> The unintilized globel,local static varibles are stored in .bss section </h3>
+<p align="center">
+<img src=
+</p>
+<p align="center">
+<img src=
+</p>
+
+<h2> testelf.c </h2>
+
+This file contains the program to check file is ELF or not. --<a href="https://github.com/chemchemnaresh?AdvancedC/tree/main/elf/testelf.c">code</a>
 

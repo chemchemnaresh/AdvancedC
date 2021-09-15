@@ -33,4 +33,26 @@ Following benfites using The Dynamic library:
   -whenever our library upgrated we automatically get the new version.
   -we don't have copy files between projects.
   -We dont have to remember to compile in the library,just include it..
-``` 
+```
+
+<h1> LD_LIBRARY_PATH </h1>
+
+By default the linker search for libraries in stadard path.if our libraries present in non standard path.
+The environment varible <b> LD_LIBRARY_PATH</b> tells the linker to search for libraries in path
+initilized to <b>LD_LIBRARY_PATH</b>.
+
+<b> step1:</b> telling gcc where to find the shared library <br />
+           <b> gcc -L/home/naresh -o hello hello.c -ldisplay </b>
+
+<b> step2: </b> Making library avilable at run time using <b>LD_LIBRARY_PATH</b> <br />
+           <b>export LD_LIBRARY_PATH=/home/naresh </b>
+
+<b> step3: </b> run the program <br />
+           <b> ./prog </b>
+
+
+<h1>display.c </h1>
+This file contains the source file of library function.  --<a href="https://github.com/chemchemnaresh/AdvancedC/tree/main/Dynamic/display.c">code</a>
+
+<h1>hello.c </h1>
+this file contains the program that uses the shared library  --<a href="https://github.com/chemchemnaresh/AdvancedC/tree/main/Dynamic/hello.c".code</a>
