@@ -40,11 +40,11 @@ Advanced system programming
 <tr>
 <td>arm</td>
 <td>Arm Assembly language</td>
-<td><a href="http://github.com/chemchemnaresh/advancedC/tree/main/arm">code</a></td>
+<td><a href="http://github.com/chemchemnaresh/AdvancedC/tree/main/arm">code</a></td>
 </tr>
 <tr>
 <td>Leetcode</td>
 <td>Leetcode programs</td>
-<td><a href="http://github.com/chemchemnaresh/AdavancedC/tree/main/Leetcode">code</a></td>
+<td><a href="http://github.com/chemchemnaresh/AdvancedC/tree/main/Leetcode">code</a></td>
 </tr>
 </table>
