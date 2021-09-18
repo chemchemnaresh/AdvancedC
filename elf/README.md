@@ -139,7 +139,8 @@ The section headers define all the sections in the file.This is used for linking
 
 <b>.note.GNU-stack:-></b>This section is used in Linux object file for declaring stack attributes <br />
 
-<b>.shstrtab:-></b>This section holds the section names.This section is of type SHT_STRTAB <br />
+<b>.shstrtab:-></b>This section holds the section:wq
+ names.This section is of type SHT_STRTAB <br />
 
 <b>.dynamic:-></b>This section holds dynamic linking information.The section's attributes will include the SHF_ALLOC 
    bit <br />
