@@ -1,6 +1,7 @@
 #include<stdio.h>
-int a,b,c,d=2,e=5;    /*globel varibles */
-static int x,y,z=10,m=12;  /* globel static varible */
+int a,b,c=3;             /*globel varibles */
+static int x,y=10,z=20;  /* globel static varible */
+const char str[] ="hello";
 int main()
 {
 	/* local varibles */
