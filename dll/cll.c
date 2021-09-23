@@ -33,10 +33,11 @@ NODE *add_node(NODE *head,int n)
 			NODE *current = head;
 			while(current->next != NULL && current->next !=head)
 			{
-		        																current = current->next;
-																		}
+				current = current->next;
+			}
 			new->data = n ;		
-			current->next = new;													new->next = head;
+			current->next = new;							
+			new->next = head;
 		}
 		return head;
 
@@ -60,8 +61,8 @@ NODE *add_first(NODE *head,int n)
 			NODE *current = head;
 			while(current->next !=head)
 			{
-																		current = current->next;
-																		}
+				current = current->next;	
+			}
 			new->data = n;
 			new->next = head;
 			current->next = new;
@@ -89,31 +90,32 @@ NODE *del_node(NODE *head,int n)
 	else if(current->data != n)
 	{
 		while(current->next != head && current->data !=n)
-		{
-																		prev = current;
-																		current = current->next;
+		{		
+			prev = current;
+			current = current->next;
 		}
 		if(current->data == n)
 		{
-
 			prev->next = current->next;
 			free(current);
-																	}															else
+		}															else
 		{
-																		printf("node not found...\n");
-																	}
-																}
+			printf("node not found...\n");
+		}
+	}
 	else
 	{
 		prev = current;
 		while(current->next != head)
-																	{
-																	current = current->next;
-																	}															current->next = prev->next;
-	  										
+		{
+			current = current->next;
+
+		}
+		current->next = prev->next;									
 		head = prev->next;
-																	free(prev);
-																}
+		free(prev);
+
+	}
 										
 	return head;
 }
@@ -129,9 +131,11 @@ void display(NODE *head)
 	else
 	{
 	       do
-	       {	 															printf("%d ",current->data);
-																		current = current->next;
-																	}while(current!=head);
+	       {
+
+		       printf("%d ",current->data);
+		       current = current->next;
+	       }while(current!=head);
 	}
 }
 
