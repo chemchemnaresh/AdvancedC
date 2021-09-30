@@ -17,9 +17,9 @@
 
  <h3> Terms </h3>
     
-     <p> Node any ithem that is stored in the tree.ROOT the top item in the tree.(50 in the tree abiove) Child Node(s) 
-      under the current node.(20 and 40 are children of 30 in the tree above) parent the node directly above the 
-      current node.(90 is the parent of 100 in the tree) Leaf A node which has no children.(20 is a leaf in the tree).
+    <p> Node any ithem that is stored in the tree.ROOT the top item in the tree.(50 in the tree abiove) Child Node(s) 
+    under the current node.(20 and 40 are children of 30 in the tree above) parent the node directly above the
+    current node.(90 is the parent of 100 in the tree) Leaf A node which has no children.(20 is a leaf in the tree).</p>
 
 Node: It represents a termination point in a tree.
 
@@ -35,35 +35,48 @@ Internal Node: As the name suggests, these are inner nodes with at least one chi
 
 Depth of a Tree: The number of edges from the tree’s node to the root is.
 
-Height of a Tree: It is the number of edges from the node to the deepest leaf. The tree height is also considered the root height.</p>
+Height of a Tree: It is the number of edges from the node to the deepest leaf. The tree height is also considered the root height.
           
 <h2> Types of Binary Tree </h2>
 
-<h3> Full Binary Tree </h3>
-  Special type of Binary Tree where every parent node or an internal node has either 2 or no child nodes.
-  It is also known as proper binary tree.
+<h3> Full Binary Tree: </h3>
 
-<h3> Perfect Binary Tree </h3>
-  A Binary tree in which each internal node has exactly two children and all leaf nodes at same level.
+ <p> Special type of Binary Tree where every parent node or an internal node has either 2 or no child nodes.
+  It is also known as proper binary tree.</p>
+ <img src ="https://cdn.programiz.com/sites/tutorial2program/files/full-binary-tree_0.png">
 
-<h3> Complete Binary Tree </h3>
-  It is same as Full Binary Tree, but all leaf nodes must be at left and every level must have both left and 
-  right child nodes. And the last leaf node should not have the right child.
+<h3> Perfect Binary Tree: </h3>
 
-<h3> Pathological Tree </h3>
-  It is the Binary Tree having a single child i.e. either left node or right node.
+<p> A binary tree is said to be ‘perfect’ if all the internal nodes have strictly two children, and every external or 
+ leaf node is at the same level.</p>
+<img src="https://cdn.programiz.com/sites/tutorial2program/files/perfect-binary-tree_0.png">
 
-<h3> Skewed Binary Tree </h3>
-  It is similar to a pathological tree in which the binary tree is either dominated by left or right nodes. 
-  And it has two types: Left Skewed Binary tree and Right Skewed Binary Tree.
+<h3> Complete Binary Tree: </h3>
+
+<p> A complete binary tree is another specific type of binary tree where all the tree levels are filled entirely with 
+  nodes, except the lowest level of the tree. Also, in the last or the lowest level of this binary tree, every node 
+  should possibly reside on the left side.
+  A complete binary tree is just like a full binary tree, but with two major differences
+  All the leaf elements must lean towards the left.
+  The last leaf element might not have a right sibling  a complete binary tree doesn't have to be a full binary tree</p> <img src ="https://cdn.programiz.com/sites/tutorial2program/files/complete-binary-tree_0.png">
+
+
+<h3> Degenerate Binary tree </h3>
+
+<p> The degenerate binary tree is a tree in which all the internal nodes have only one children.</p>
+ <img src ="http://github.com/chemchemnaresh/AdvancedC/blob/main/figures/degenerate.png">
 
 <h3> Balanced Binary Tree </h3>
-  Type of Binary Tree in which difference between the height of left and right subtree for each child node is 0 or 1
 
+<p>A binary tree is said to be ‘balanced’ if the tree height is O(logN), where ‘N’ is the number of nodes. In a balanced   binary tree, the height of the left and the right subtrees of each node should vary by at most one. An AVL Tree and
+   Red-Black Tree are some common examples of data structure that can generate a balanced binary search tree. Here is an   example of a balanced binary tree:</p>
+  -Difference between the left and the right subtree for any node is not more than one
+  -The left subtree is balanced
+  -The right subtree is balanced
+ <img src ="https://cdn.programiz.com/sites/tutorial2program/files/balanced-binary-tree.png"> 
 
 
 <h1> Basic Operations </h1>
-```
 
   Following are the basic operations of a tree :
  
@@ -86,7 +99,7 @@ Height of a Tree: It is the number of edges from the node to the deepest leaf. T
     struct node *leftChild;
     struct node *rightChild;
  };
-```
+
 
   <h1> Tree Traversals(Inorder,Preorder,Postorder </h1>
 
@@ -101,7 +114,7 @@ Height of a Tree: It is the number of edges from the node to the deepest leaf. T
  (c) Postorder (Left, Right, Root) : 4 5 2 3 1 
 
 <h3>  Inorder Traversal </h3>
-```
+
   Algoritham Inorder
    1. Visit the left subtree of the the Inorder Traversal.
    2. Visit the root.
@@ -112,10 +125,9 @@ Height of a Tree: It is the number of edges from the node to the deepest leaf. T
   In case of binary search trees (BST), Inorder traversal gives nodes in non-decreasing order. To get nodes of 
   BST in non-increasing order, a variation of Inorder traversal where Inorder traversal s reversed can be used. 
   Example: Inorder traversal for the above-given figure is 4 2 5 1 3.
-```
 
 <h3> Preorder Traversal </h3>
-``` 
+
  Algorithm Preorder(tree)
     1. Visit the root.
     2. Visit the left subtree of the root Preorder Traversal.
@@ -127,10 +139,10 @@ Height of a Tree: It is the number of edges from the node to the deepest leaf. T
   Preorder traversal is used to create a copy of the tree. Preorder traversal is also used to get prefix expression
   on of an expression tree.  
   Example: Preorder traversal for the above given figure is 1 2 4 5 3.
-```
+
 
 <h3> Postorder Traversal </h3>
-```
+
  Algorithm Postorder(tree)
    1. Visit the left subtree of the root in Postorder Traversal.
    2. Visit the right subtree of the root in Postorder Traversal
@@ -141,7 +153,7 @@ Height of a Tree: It is the number of edges from the node to the deepest leaf. T
   Postorder traversal is used to delete the tree. Please see the question for deletion of tree for details. 
   Postorder traversal is also useful to get the postfix expression of an expression tree. 
   Example: Postorder traversal for the above given figure is 4 5 2 3 1. 
-```
+
 
 <h3> Seraching a value in a bst </h3>
 
