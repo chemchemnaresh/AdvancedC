@@ -140,3 +140,54 @@ which stores instructions required by the CPU, and the data cache that stores th
 
  Enhanced instructions—The enhanced digital signal processor (DSP) instructions wereadded to the standard 
  ARM instruction set to support fast 16×16-bit multiplier oper- ations and saturation.
+
+<h2> Registers </h2>
+General-purpose registers hold either data or an address. They are identified with the
+letter r prefixed to the register number.
+
+used when executing applications. The processor can operate in seven different modes,
+which we will introduce shortly. All the registers shown are 32 bits in size.
+
+There are up to 18 active registers: 16 data registers and 2 processor status registers. The
+data registers are visible to the programmer as r0 to r15.
+
+The ARM processor has three registers assigned to a particular task or special function:
+r13, r14, and r15. They are frequently given different labels to differentiate them from the
+other registers.
+<img src="http://github.com/chemchemnaresh/AdvancedC/blob/main/figures/reg.png">
+
+<h3> Stack pointer </h3>
+<p>Registerr13 is used as the stack pointer (sp) and stores the head of the stack
+in the current processor mode.
+
+<h3> Link register </h3>
+ Register r14 is called the link register (lr) and is where the core puts the return address
+ whenever it calls a subroutine.or store the function return adress when an interrupt is triggered.
+ For faster switching, ret address are stored in the register.
+
+<h3 > Program counter</h3>
+Registerr15 is the program counter (pc) and contains the address of the next instruction
+to be fetched by the processor.</p>
+
+<h3> CPSR </h3>
+This register is used to store context of the current mode.
+context means status of arith flags, processor mode & state & interrupt status.
+<img src ="https://th.bing.com/th/id/R.2cf0ef7ed5a2c6f59331105aed21e0f0?rik=NXURPT5mWrytNA&riu=http%3a%2f%2fizobs.github.io%2fpicture%2farm1.png&ehk=cm%2fRww1hmtN3NGoNbU6vyK%2fDEK0yq6fXBqs1zmCI7aE%3d&risl=&pid=ImgRaw&r=0">
+
+Divided into 4 fields (each with 8-bit wide): 
+- Flags : holding instruction conditions 
+- Status : reserved 
+- Extension : reserved 
+- Control : indicate the processor mode
+
+<h2> Processor Mode </h2>
+The processor mode determines which registers are active and 
+the access rights to the cpsr register itself. 
+- 7 processor modes: 
+
+<img src ="https://th.bing.com/th/id/R.cbd28722b36474b425b67ae03f93872e?rik=0mFiLi7YKfQWMA&riu=http%3a%2f%2fimg.blog.csdn.net%2f20160929180657511&ehk=7nAmqN69%2bG5cN1%2bl21fLg%2fHVIvj6EqP9o5PWMOjFcuY%3d&risl=&pid=ImgRaw&r=0">
+
+<p>Each process mode is either privileged or nonprivileged 
+A privileged mode allows full read-write access to the cpsr 
+A nonprivileged mode only allows to read access to the control filed in the cpsr but still allows 
+read-write access to the condition flags.</p>

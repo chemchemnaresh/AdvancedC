@@ -175,3 +175,56 @@ figure : Searching value 10 in given Tree
             /  \    /
            5    8  10            3.10=10  - seasrch sucessfull.
 
+
+<h2> Algorithm to convert Binary Search Tree into Balanced Binary Search Tree </h2>
+
+Example:
+Input of an unbalanced Binary Search Tree:
+<img src="https://iq.opengenus.org/content/images/2019/07/Tree_12.PNG">
+
+Output of the same tree but as a balanced Binary Search Tree:
+<img src ="https://iq.opengenus.org/content/images/2019/07/Tree_13.PNG">
+
+<P>As we know the property of binary search tree, inorder traversal of binary search tree gives element in sorted order which are stored in binary search tree.And then we can form the balanced binary search from the sorted array</p>
+
+<h3> Algorithm: </h3>
+
+<p>Traverse given BST in inorder and store result in an array. This step takes O(n) time. Note that this array would be sorted as inorder traversal of BST always produces sorted sequence.
+Get the Middle of the array and make it root.
+Recursively do same for left half and right half.
+Get the middle of left half and make it left child of the root created in step 1.
+Get the middle of right half and make it right child of the root created in step</p>
+
+Explanation:
+First of all we will do inorder traversal and and store the elements in array.
+
+<p>First go to the left of the root but it is null therefore go to the root of the tree and store it in an array.
+Then go to the right of the root go to the 2.left check if left child of the 2 is null the store 2 in the array.
+Then go to the right of the 2 and check if the left child of 3 is null the store the 3 in array.
+Then go to the right of 3 and check if the left child of 4 is null then store 5 in the array
+Then go to the right of 4 and check if the left child of 5 is null then store 5 in array. Now check if the right 
+child of 5 is null then return the array.</p>
+
+Now we will build the balanced binary search tree from the sorted array we obtained through the above process.
+First of all find the the middle of the array i.e. 3 and store it as root of the new tree.
+
+<img src =<"https://iq.opengenus.org/content/images/2019/07/BTree.png">
+
+ Then go to the left of the 3 and build the left subtree for that find again the middle of the left sub array of 
+ 3 i.e. 2 and store as the left child of 3.
+
+<img src =<"https://iq.opengenus.org/content/images/2019/07/BTree-1.png">
+
+Then go the left sub array of the 2 and again find the middle of the array and store it as the left child of 2.
+
+<img src ="https://iq.opengenus.org/content/images/2019/07/BTree-2.png">
+
+Now start > end therefore go to root of the tree i.e. 3.
+Now as we have constructed left sub tree in similar way now we will construct right sub tree go to the right sub 
+array and again find the middle of the array i.e. 4 and store it as the right child of 3.
+
+<img src ="https://iq.opengenus.org/content/images/2019/07/BTree-3.png">
+
+Now go the right sub array of 4 and again find the middle i.e. 5 and store it as the right child of the 4.
+
+<img src ="https://iq.opengenus.org/content/images/2019/07/BTree-4.png">
