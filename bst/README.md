@@ -177,9 +177,7 @@ figure : Searching value 10 in given Tree
 
 
 <h2> Algorithm to convert Binary Search Tree into Balanced Binary Search Tree </h2>
-
-Example:
-Input of an unbalanced Binary Search Tree:
+<p>Example:Input of an unbalanced Binary Search Tree</p>
 <img src="https://iq.opengenus.org/content/images/2019/07/Tree_12.PNG">
 
 Output of the same tree but as a balanced Binary Search Tree:
@@ -205,26 +203,26 @@ Then go to the right of 3 and check if the left child of 4 is null then store 5 
 Then go to the right of 4 and check if the left child of 5 is null then store 5 in array. Now check if the right 
 child of 5 is null then return the array.</p>
 
-Now we will build the balanced binary search tree from the sorted array we obtained through the above process.
-First of all find the the middle of the array i.e. 3 and store it as root of the new tree.
+<p>Now we will build the balanced binary search tree from the sorted array we obtained through the above process.
+First of all find the the middle of the array i.e. 3 and store it as root of the new tree.</p>
 
-<img src =<"https://iq.opengenus.org/content/images/2019/07/BTree.png">
+   <img src ="https://iq.opengenus.org/content/images/2019/07/BTree.png">
 
- Then go to the left of the 3 and build the left subtree for that find again the middle of the left sub array of 
- 3 i.e. 2 and store as the left child of 3.
+<p> Then go to the left of the 3 and build the left subtree for that find again the middle of the left sub array of 
+ 3 i.e. 2 and store as the left child of 3.</p>
 
-<img src =<"https://iq.opengenus.org/content/images/2019/07/BTree-1.png">
+   <img src ="https://iq.opengenus.org/content/images/2019/07/BTree-1.png">
 
-Then go the left sub array of the 2 and again find the middle of the array and store it as the left child of 2.
+<p>Then go the left sub array of the 2 and again find the middle of the array and store it as the left child of 2.</p>
 
-<img src ="https://iq.opengenus.org/content/images/2019/07/BTree-2.png">
+   <img src ="https://iq.opengenus.org/content/images/2019/07/BTree-2.png">
 
-Now start > end therefore go to root of the tree i.e. 3.
+<p>Now start > end therefore go to root of the tree i.e. 3.
 Now as we have constructed left sub tree in similar way now we will construct right sub tree go to the right sub 
-array and again find the middle of the array i.e. 4 and store it as the right child of 3.
+array and again find the middle of the array i.e. 4 and store it as the right child of 3.</p>
 
-<img src ="https://iq.opengenus.org/content/images/2019/07/BTree-3.png">
+   <img src ="https://iq.opengenus.org/content/images/2019/07/BTree-3.png">
 
-Now go the right sub array of 4 and again find the middle i.e. 5 and store it as the right child of the 4.
+<p>Now go the right sub array of 4 and again find the middle i.e. 5 and store it as the right child of the 4.</p>
 
-<img src ="https://iq.opengenus.org/content/images/2019/07/BTree-4.png">
+   <img src ="https://iq.opengenus.org/content/images/2019/07/BTree-4.png">
