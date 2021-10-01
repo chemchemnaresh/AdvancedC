@@ -193,3 +193,26 @@ Each process mode is either privileged or nonprivileged
 -A privileged mode: allows full read-write access to the cpsr 
 -A nonprivileged mode: only allows to read access to the control filed in the cpsr but still allows 
  read-write access to the condition flags.
+
+Let’s list all the processor modes and describe what it is used for:
+
+User – regular programs that can access the resources they have permission for.
+
+FIQ – the processor goes into this mode when handling as fast interrupt. The operating system provides this 
+code and it has access to all operating system resources.
+
+IRQ – the processor goes into this mode when handling a regular interrupt. The operating system provides this 
+code and it has access to all operating system resources.
+
+Supervisor – when a user mode program makes an SVC Assembly instruction which calls an operating system services, 
+the program switches to this mode, which allows the program to operate at a privileged level for the duration 
+of the code.
+
+Abort – if a user mode program tries to access memory it isn’t allowed, then this mode is entered to let the operating 
+system intervene and either terminate the program, or send the program a signal.
+
+undefined – is a user mode program tries to execute an undefined or illegal Assembly instruction then this mode 
+is entered and the operating system can terminate the program or send it a signal.
+
+System – this is the mode that the operating system runs at. Processes that the operating system considers part 
+of itself run at this level.
