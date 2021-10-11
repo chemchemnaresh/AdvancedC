@@ -61,8 +61,9 @@ void printInorder(struct node* node)
 
 	/* now recur on right child */
 	printInorder(node->right);
-	 														}
-	 														/* Given a binary tree, print its nodes in preorder*/
+}
+	 													
+/* Given a binary tree, print its nodes in preorder */
 void printPreorder(struct node* node)
 {
 	if (node == NULL)

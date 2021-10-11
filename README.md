@@ -47,4 +47,9 @@ Advanced system programming
 <td>Leetcode programs</td>
 <td><a href="http://github.com/chemchemnaresh/AdvancedC/tree/main/Leetcode">code</a></td>
 </tr>
+<tr>
+<td>bst</td>
+<td> Binary search tree programs</td>
+<td><a href="http://github.com/chemchemnaresh/AdvancedC/tree/main/bst">code</a></td>
+</tr>
 </table>
