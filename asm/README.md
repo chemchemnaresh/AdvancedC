@@ -176,43 +176,200 @@ context means status of arith flags, processor mode & state & interrupt status.<
 
 <img src ="https://th.bing.com/th/id/R.2cf0ef7ed5a2c6f59331105aed21e0f0?rik=NXURPT5mWrytNA&riu=http%3a%2f%2fizobs.github.io%2fpicture%2farm1.png&ehk=cm%2fRww1hmtN3NGoNbU6vyK%2fDEK0yq6fXBqs1zmCI7aE%3d&risl=&pid=ImgRaw&r=0">
 
+When an ALU operation changes the flags:
+
+N – Negative
+   is set if the result of a data processing instruction was negative.
+Z – Zero
+   is set if the result was zero.
+C – Carry
+   is set if an addition, subtraction or compare causes a result bigger than 32 bits, or is set from the output of the 
+   shifter for move and logical instructions.
+V – Overflow
+   is set if an addition, subtraction or compare produces a signed result bigger than 31 bits.
+
 Divided into 4 fields (each with 8-bit wide): 
 - Flags : holding instruction conditions 
 - Status : reserved 
 - Extension : reserved 
-- Control : indicate the processor mode
+- Control : indicate the processor mode.
+
+<h2> Banked register </h2>
+<img src = "https://ars.els-cdn.com/content/image/3-s2.0-B9781558608740500034-f02-04-9781558608740.jpg">
+
+-There are 37 registers in the register file. 
+- From those, 20 registers are called banked registers (identifed by the shading in the diagram), are hidden from a
+  program at different times.
+- These registers are available only when the processor is in a particular mode.  
+- All processor modes except system mode have a set of associate banked registers that are a subset of the main 
+  16 registers. 
+- A banked register maps one-to-one onto a user mode register 
+- The processor mode can be changed by a program that writes directly to the cpsr, if it has the privilege. 
+
+<h3> Condition Execution </h3>
+
+<p> Conditional execution controls whether or not the core will execute an instruction. Most instructions have a 
+    condition attribute that determines if the core will execute it based on the setting of the condition flags</p>
+
+<img src ="http://pds10.egloos.com/pds/200906/04/90/c0098890_4a27ab03197cc.jpg">
+
+EX:
+All ARM instructions can be executed conditionally based on the CPSR register
+- Appropriate condition suffix needs to be added to the instruction
+  NE - not equal, EQ - equal. CC - less than (unsigned), LT less than (signed)
+Ex. CMP r0. r1
+ADDNE r3, r4, r5
+BCC test
+
+=> ADDNE is executed if r0 not equal to r1
+=> BCC is executed if r0 is less than r1
+
+Most instructions have a condition attribute that determines if 
+the core will execute it based on the setting of the condition 
+flag. 
+- The condition attribute is postfixed in the instruction 
+mnemonic, which is coded into the instruction.
 
 <h2> Processor Mode </h2>
-The processor mode determines which registers are active and 
-the access rights to the cpsr register itself. 
-- 7 processor modes: 
+- Processor supports 7 operating modes.
+- The processor modes decides the availability of registers to the programmers.
+- These processor modes provide right to access the Current Program Status Register(CPSR).  
 
 <img src ="https://th.bing.com/th/id/R.cbd28722b36474b425b67ae03f93872e?rik=0mFiLi7YKfQWMA&riu=http%3a%2f%2fimg.blog.csdn.net%2f20160929180657511&ehk=7nAmqN69%2bG5cN1%2bl21fLg%2fHVIvj6EqP9o5PWMOjFcuY%3d&risl=&pid=ImgRaw&r=0">
 
 Each process mode is either privileged or nonprivileged 
--A privileged mode: allows full read-write access to the cpsr 
--A nonprivileged mode: only allows to read access to the control filed in the cpsr but still allows 
+-Privileged mode: allows full read-write access to the cpsr 
+-Nonprivileged mode: only allows to read access to the control filed in the cpsr but still allows 
  read-write access to the condition flags.
 
 Let’s list all the processor modes and describe what it is used for:
 
-User – regular programs that can access the resources they have permission for.
+User – It is a unprivileged mode. Under this most programs and applications run. This mode is used for normal program execution.
 
-FIQ – the processor goes into this mode when handling as fast interrupt. The operating system provides this 
-code and it has access to all operating system resources.
+FIQ – Fast Interrupt Request mode
+      The processor goes into this mode when a high priority(Fast) interrupt is raised. FIQ is generated externally by taking nFIQ input low and it has access to all operating system resources. 
+      This can be disabled by setting F flag in CPSR.
+ 
+IRQ – Interrupt request mode 
+      The processor goes into this mode when a low priority(normal) interrupt is raised. The operating system provides this code and it has access to all operating system resources.
 
-IRQ – the processor goes into this mode when handling a regular interrupt. The operating system provides this 
-code and it has access to all operating system resources.
+Supervisor – The processor enters into this mode after Reset. When a user mode program makes an SVC Assembly instruction which calls an operating system services, the program switches to this mode, 
+             which allows the program to operate at a privileged level for the duration of the code.
 
-Supervisor – when a user mode program makes an SVC Assembly instruction which calls an operating system services, 
-the program switches to this mode, which allows the program to operate at a privileged level for the duration 
-of the code.
+Abort – Processor goes into this mode when there is a failed attempt to access memory.
 
-Abort – if a user mode program tries to access memory it isn’t allowed, then this mode is entered to let the operating 
-system intervene and either terminate the program, or send the program a signal.
+undefined – is a user mode program tries to execute an undefined or illegal Assembly instruction then this mode is entered and the operating system can terminate the program or send it a signal.
 
-undefined – is a user mode program tries to execute an undefined or illegal Assembly instruction then this mode 
-is entered and the operating system can terminate the program or send it a signal.
+System – This is special version of User mode. This mode allows full read write access to cpsr.
 
-System – this is the mode that the operating system runs at. Processes that the operating system considers part 
-of itself run at this level.
+<h3> Changing mode an exception </h3>
+
+<img src ="https://ars.els-cdn.com/content/image/3-s2.0-B9781558608740500034-f02-05-9781558608740.jpg">
+
+1.saves cpsr to spsr of exception mode.
+2.saves pc to LR of exception mode.
+3.sets cpsr to exception mode.
+4.sets pc to the address of exception handler.
+
+-Copies the CPSR into the appropriate SPSR. This saves the current mode, interrupt mask, and condition flags.
+-Switches state automatically if the current state does not match the instruction set used in the exception vector table.
+-Changes the appropriate CPSR mode bits to:
+ Change to the appropriate mode, and map in the appropriate banked out registers for that mode.
+ Disable interrupts. IRQs are disabled when any exception occurs. FIQs are disabled when an FIQ occurs and on reset.
+-Sets the appropriate LR to the return address.
+-Sets the PC to the vector address for the exception.
+
+<h3> Vector table </h3>
+
+<p>An interrupt vector table (IVT) is a data structure that associates a list of interrupt handlers with a list of interrupt 
+requests in a table of interrupt vectors. Each entry of the interrupt vector table, called an interrupt vector, is the 
+address of an interrupt handler.</p>
+
+<p>When an exception or interrupt occurs, the processor sets the pc to a specific memory address. The address is within a 
+special address range called the vector table. The entries in the vector table are instructions that branch to specific 
+routines designed to handle a particular exception or interrupt.</p>
+
+<p>The memory map address 0x00000000 is reserved for the vector table, a set of 32-bit words. On some processors the vector 
+table can be optionally located at a higher address in memory (starting at the offset 0xffff0000). Operating systems such as 
+Linux and Microsoft's embedded products can take advantage of this feature.</p>
+
+<p>When an exception or interrupt occurs, the processor suspends normal execution and starts loading instructions from the 
+exception vector table. Each vector table entry contains a form of branch instruction pointing to the start 
+of a specific routine</p>
+
+<img src ="https://th.bing.com/th/id/R.c866a5fe6b7298be7c1d243f8c09d26d?rik=z6YxF4QKZJlVqg&riu=http%3a%2f%2fpds10.egloos.com%2fpds%2f200906%2f04%2f90%2fc0098890_4a27ab03197cc.jpg&ehk=Gd5k14MhbX4JFvc1Rgw1Y0i7T2djXh7VmfTzQDw8ejs%3d&risl=&pid=ImgRaw&r=0">
+
+-Reset vector: is the location of the first instruction executed by the processor when power is applied. This instruction 
+ branches to the initialization code.
+
+-Undefined instruction vector: is used when the processor cannot decode an instruction.
+
+-Software interrupt vector is called when you execute a SWI instruction. The SWI instruction is frequently used as the 
+ mechanism to invoke an operating system routine.
+
+-Prefetch abort vector occurs when the processor attempts to fetch an instruction from an address without the correct access 
+ permissions. The actual abort occurs in the decode stage.
+
+-Data abort vector is similar to a prefetch abort but is raised when an instruction attempts to access data memory without 
+ the correct access permissions.
+
+-Interrupt request vector: is used by external hardware to interrupt the normal execution flow of the processor. It can only 
+ be raised if IRQs are not masked in the cpsr.
+
+-Fast interrupt request vector is similar to the interrupt request but is reserved for hardware requiring faster response time  It can only be raised if FIQs are not masked in the cpsr.
+
+<h3> ARM Pipelining : </h3>
+
+-A Pipelining is the mechanism used by RISC(Reduced instruction set computer) processors to execute instructions.
+ It is a speed up technique where multiple instructions are overlapped in exection on the processor.
+-By speeding up the execution by fetching the instruction, while other instructions are being decoded and executed 
+ simultaneously.
+-Which in turn allows the memory system and processor to work continuously.
+-The pipeline design for each  ARM family is different.
+
+<p>Pipelining is a design technique or a process which plays an important role in increasing the efficiency of data 
+processing in the processor of a computer and microcontroller. By keeping the processor in a continuous process 
+of fetching, decoding and executing called (F&E cycle).   
+
+ARM devices need pipelining because of RISC as it emphasizes on  compiler complexity. Each stage is equivalent to 
+1 cycle, that is n stages = n cycles.</p>
+
+Latency: The time taken by processor to execute an (one) instruction.
+
+Throughput : The number of instructions execute per clock cycle.
+
+<h3> 3Stage pipeline </h3>
+
+<img src ="https://media.geeksforgeeks.org/wp-content/uploads/20210617113945/3stage.png">
+
+-Fetch loads an instruction from memory.
+-Decode identifies the instruction to be executed.
+-Execute processes the instruction and writes the result back to the register.
+-By over lapping the above stages of execution of different instructions, the speed of execution is increased.
+-The pipelining allows the core to execute an instruction every cycle, which results in increased throughput.
+
+<h3> 5Stage Pipeline </h3>
+
+<img src ="https://media.geeksforgeeks.org/wp-content/uploads/20210617115055/5stage.png">
+
+-Stage 1 (Instruction Fetch):
+ In this stage the CPU reads instructions from the address in the memory whose value is present in the program counter.
+-Stage 2 (Instruction Decode):
+ In this stage, instruction is decoded and the register file is accessed to get the values from the registers used in the 
+ instruction.
+-Stage 3 (Instruction Execute):
+ In this stage, ALU operations are performed.
+-Stage 4 (Memory Access):
+ In this stage, memory operands are read and written from/to the memory that is present in the instruction.
+-Stage 5 (Write Back):
+ In this stage, computed/fetched value is written back to the register present in the instructions.
+
+-Because of an increase in stages and efficiency, the throughput is 10%-13% higher than ARM 7.
+-Core frequency of ARM 9 is slightly higher than that of ARM 7.
+
+
+
+
+
+
+
