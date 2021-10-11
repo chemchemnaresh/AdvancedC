@@ -54,7 +54,7 @@ Advanced system programming
 </tr>
 <tr>
 <td>asm</td>
-<td>arm Assembly Language</td>
+<td>ARM Assembly Language</td>
 <td><a href="http://github.com/chemchemnaresh/AdvancedC/tree/main/asm">code</a></td>
 </tr>
 </table>
